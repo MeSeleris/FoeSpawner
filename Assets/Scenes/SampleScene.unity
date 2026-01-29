@@ -622,7 +622,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1264915051}
   - component: {fileID: 1264915050}
-  - component: {fileID: 1264915049}
   - component: {fileID: 1264915048}
   m_Layer: 0
   m_Name: SpawnController
@@ -647,18 +646,6 @@ MonoBehaviour:
   - {fileID: 500511341}
   - {fileID: 278303049}
   - {fileID: 1171721483}
---- !u!114 &1264915049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1264915047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25607a2e7cb6d4b4595e294cbecc8146, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1264915050
 MonoBehaviour:
   m_ObjectHideFlags: 0
