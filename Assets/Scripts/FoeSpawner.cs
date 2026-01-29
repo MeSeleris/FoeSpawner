@@ -9,8 +9,8 @@ public class FoeSpawner : MonoBehaviour
 
     private int _currentSize = 1;
     private int _maxCapacity = 5;
-    private float _minSpeed = 3f;
-    private float _maxSpeed = 7f;
+    private float _minSpeed = 1f;
+    private float _maxSpeed = 5f;
 
     private WaitForSeconds _spawnDelay = new WaitForSeconds(1f);
 
@@ -20,9 +20,9 @@ public class FoeSpawner : MonoBehaviour
     {
         _pool = new ObjectPool<Foe>(
             createFunc: () => Instantiate(_prefabFoe),
-            actionOnGet: PrepareGetObject,
-            actionOnRelease: PrepareReleaseObject,
-            actionOnDestroy: PrepareDestroyObject,
+            actionOnGet: GetObject,
+            actionOnRelease: ReleaseObject,
+            actionOnDestroy: DestroyObject,
             collectionCheck: true,
             defaultCapacity: _currentSize,
             maxSize: _maxCapacity
@@ -34,7 +34,7 @@ public class FoeSpawner : MonoBehaviour
         StartCoroutine(SpawnFoe());
     }
 
-    private void PrepareGetObject(Foe foe)
+    private void GetObject(Foe foe)
     {
         foe.Died += OnFoeDied;       
 
@@ -55,12 +55,12 @@ public class FoeSpawner : MonoBehaviour
         foe.Initialize(speed, randomDirection);
     }
 
-    private void PrepareReleaseObject(Foe foe)
+    private void ReleaseObject(Foe foe)
     {
         foe.gameObject.SetActive(false);
     }
 
-    private void PrepareDestroyObject(Foe foe)
+    private void DestroyObject(Foe foe)
     {
         Destroy(foe.gameObject);
     }
